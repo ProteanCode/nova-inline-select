@@ -140,14 +140,22 @@ Development of this package is sponsored by Kirschbaum Development Group, a deve
 
 ## Development
 
-From the root of your project
+- The root project has to have a Laravel nova in /vendor/laravel/nova directory
+- From the root of your project:
 ```shell
 mkdir -p vendor/kirschbaum-development/nova-inline-select
 git clone git@github.com:ProteanCode/nova-inline-select.git vendor/kirschbaum-development/nova-inline-select
+docker run --rm -it -v $(pwd):/var/www/html composer:2.8.8 sh -c 'cd /var/www/html/vendor/kirschbaum-development/nova-inline-select && composer install'
+docker run --rm -it -v $(pwd):/var/www/html -w /var/www/html composer:2.8.8 ls -la
 docker run --rm -it -u root -v $(pwd):/var/www/html node:lts-gallium bash
 cd /var/www/html/vendor/kirschbaum-development/nova-inline-select
 npm ci
 npm run dev
+```
+
+To build the dist files run
+```shell
+npm run prod
 ```
 
 ## License
