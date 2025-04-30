@@ -43,8 +43,8 @@ export default {
                 });
         },
 
-        attemptUpdate(value) {
-            this.value = value;
+        attemptUpdate(event) {
+            this.value = event.target.value;
 
             if (this.field.indexTwoStepDisabled ?? false) {
                 return this.submit();

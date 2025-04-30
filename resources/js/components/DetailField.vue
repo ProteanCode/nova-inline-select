@@ -4,9 +4,9 @@
             <div class="flex">
                 <template v-if="isInline">
                     <SelectControl
+                        v-model="value"
                         :id="field.uniqueKey"
                         :dusk="field.attribute"
-                        v-model:selected="value"
                         @change="attemptUpdate"
                         @click.stop
                         class="w-full md:w-3/5"
@@ -20,12 +20,11 @@
                     </SelectControl>
 
                     <BasicButton
-                        class="shadow relative ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900"
+                        class="shadow relative px-2 ml-2 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-900 flex justify-center flex-col"
                         v-if="showUpdateButton"
-                        :title="__('Update')"
                         @click.stop="submit"
                     >
-                        <Icon type="play" solid />
+                        <Icon name="play" type="solid"/>
                     </BasicButton>
                 </template>
 
@@ -46,8 +45,13 @@
 <script>
 import { FormField, HandlesValidationErrors } from 'laravel-nova';
 import InlineMixin from './mixins/inline';
+import { Icon } from 'laravel-nova-ui'
 
 export default {
+    components: {
+        Icon,
+    },
+
     mixins: [
         FormField,
         HandlesValidationErrors,
