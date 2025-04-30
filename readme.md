@@ -138,6 +138,18 @@ If you discover any security related issues, please email brandon@kirschbaumdeve
 
 Development of this package is sponsored by Kirschbaum Development Group, a developer driven company focused on problem solving, team building, and community. Learn more [about us](https://kirschbaumdevelopment.com) or [join us](https://careers.kirschbaumdevelopment.com)!
 
+## Development
+
+From the root of your project
+```shell
+mkdir -p vendor/kirschbaum-development/nova-inline-select
+git clone git@github.com:ProteanCode/nova-inline-select.git vendor/kirschbaum-development/nova-inline-select
+docker run --rm -it -u root -v $(pwd):/var/www/html node:lts-gallium bash
+cd /var/www/html/vendor/kirschbaum-development/nova-inline-select
+npm ci
+npm run dev
+```
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
